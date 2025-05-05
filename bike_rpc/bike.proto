@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package bike;
+
+option go_package = "github.com/TolkienRools/gRPC/bike_rpc";
+
+service BikeService {
+  // Получить полную информацию о велосипеде
+
+  rpc GetBikes(GetBikesRequest) returns (GetBikesResponse);
+
+  rpc AddBike(AddBikeRequest) returns (AddBikeResponse);
+
+}
+
+message GetBikesRequest {
+  string user_id = 1;
+}
+
+message GetBikesResponse {
+  repeated Bike bikes = 1;
+}
+
+message AddBikeRequest {
+  Bike bike = 1;
+}
+
+message AddBikeResponse {
+  string BikeID = 1;
+}
+
+message Bike {
+  string BikeID = 1;
+  string UserID = 2;
+  string ModelName = 3;
+  string PurchaseDate = 4;
+}
+
+// message BikeRequest {
+//   string bike_id = 1;
+// }
+
+// message BikeResponse {
+//   Bike bike = 1;
+// }
+
+// message Bike {
+//   string id = 1;
+//   string model = 2;
+//   repeated Component components = 3;
+// }
+
+// message Component {
+//   string type = 1;
+//   string serial_number = 2;
+//   ComponentStatus status = 3;
+//   string last_maintenance = 4;
+// }
+
+// enum ComponentStatus {
+//   UNKNOWN = 0;
+//   GOOD = 1;
+//   NEEDS_MAINTENANCE = 2;
+//   DAMAGED = 3;
+// }
+
+// message ComponentStatusUpdate {
+//   string component_id = 1;
+//   ComponentStatus new_status = 2;
+// }
+
+// message UpdateResponse {
+//   bool success = 1;
+//   string message = 2;
+// }

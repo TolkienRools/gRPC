@@ -90,6 +90,6 @@ Scheme
   - Bicycle Service: `:50051`
 - **Генерация кода**:
   ```bash
-  protoc --go_out=. --go-grpc_out=. proto/*.proto
+  protoc -I . bike_rpc/bike.proto --go_out=./github.com/TolkienRools/gRPC/bike_rpc --go_opt=paths=source_relative --go-grpc_out=./github.com/TolkienRools/gRPC/bike_rpc --go-grpc_opt=paths=source_relative
 
 
